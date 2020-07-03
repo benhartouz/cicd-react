@@ -11,7 +11,11 @@ jobs:
           steps:
             - run: npm install
             - run: npm test
+  heroku: circleci/heroku@0.0.10
 workflows:
-    build-and-test:
-      jobs:
-        - build-and-test
+  build-and-test:
+    jobs:
+      - build-and-test
+  heroku_deploy:
+    jobs:
+      - heroku/deploy-via-git
